@@ -7,7 +7,7 @@ export const useMutateBrands = () => {
 
   const createBrandMutation = useMutation(
     (brand: Brand) =>
-      axios.post<Brand>(`${process.env.REACT_APP_REST_URL}api/brands`, brand, {
+      axios.post<Brand>(`${process.env.REACT_APP_REST_URL}api/brands/`, brand, {
         headers: {
           "Content-Type": "application/json",
           Authorization: `${localStorage.token}`,
@@ -28,7 +28,7 @@ export const useMutateBrands = () => {
   const updateBrandMutation = useMutation(
     (brand: Brand) =>
       axios.put<Brand>(
-        `${process.env.REACT_APP_REST_URL}api/brands/${brand.id}`,
+        `${process.env.REACT_APP_REST_URL}api/brands/${brand.id}/`,
         brand,
         {
           headers: {
@@ -53,7 +53,7 @@ export const useMutateBrands = () => {
   );
   const deleteBrandMutation = useMutation(
     (id: number) =>
-      axios.delete(`${process.env.REACT_APP_REST_URL}api/brands/${id}`, {
+      axios.delete(`${process.env.REACT_APP_REST_URL}api/brands/${id}/`, {
         headers: {
           "Content-Type": "application/json",
           Authorization: `token ${localStorage.token}`,

@@ -17,6 +17,7 @@ export const useQuerySegments = () => {
   return useQuery<Segment[], Error>({
     queryKey: "segments",
     queryFn: getSegments,
-    staleTime: Infinity,
+    cacheTime: 10000,
+    staleTime: 0,
   });
 };

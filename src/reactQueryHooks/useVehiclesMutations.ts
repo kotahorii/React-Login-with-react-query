@@ -8,7 +8,7 @@ export const useMutateVehicles = () => {
   const createVehiclesMutation = useMutation(
     (vehicle: Vehicle) =>
       axios.post<Vehicle>(
-        `${process.env.REACT_APP_REST_URL}api/vehicles`,
+        `${process.env.REACT_APP_REST_URL}api/vehicles/`,
         vehicle,
         {
           headers: {
@@ -32,7 +32,7 @@ export const useMutateVehicles = () => {
   const updateVehicleMutation = useMutation(
     (vehicle: Vehicle) =>
       axios.put<Vehicle>(
-        `${process.env.REACT_APP_REST_URL}api/vehicles/${vehicle.id}`,
+        `${process.env.REACT_APP_REST_URL}api/vehicles/${vehicle.id}/`,
         vehicle,
         {
           headers: {
@@ -57,7 +57,7 @@ export const useMutateVehicles = () => {
   );
   const deleteVehicleMutation = useMutation(
     (id: number) =>
-      axios.delete(`${process.env.REACT_APP_REST_URL}api/vehicles/${id}`, {
+      axios.delete(`${process.env.REACT_APP_REST_URL}api/vehicles/${id}/`, {
         headers: {
           "Content-Type": "application/json",
           Authorization: `token ${localStorage.token}`,
@@ -68,7 +68,7 @@ export const useMutateVehicles = () => {
         const previousVehicle = queryClient.getQueryData<Vehicle[]>("vehicles");
         if (previousVehicle) {
           queryClient.setQueryData<Vehicle[]>(
-            "brands",
+            "vehicles",
             previousVehicle.filter((vehicle) => vehicle.id !== variables)
           );
         }

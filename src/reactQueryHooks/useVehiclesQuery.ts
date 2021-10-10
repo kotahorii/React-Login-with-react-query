@@ -17,6 +17,7 @@ export const useQueryVehicles = () => {
   return useQuery<Vehicle[], Error>({
     queryKey: "vehicles",
     queryFn: getVehicles,
+    cacheTime: 5000,
     staleTime: 0,
     refetchOnWindowFocus: true,
   });

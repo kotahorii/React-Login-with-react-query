@@ -17,6 +17,7 @@ export const useQueryBrands = () => {
   return useQuery<Brand[], Error>({
     queryKey: "brands",
     queryFn: getBrands,
-    staleTime: Infinity,
+    cacheTime: 10000,
+    staleTime: 0,
   });
 };

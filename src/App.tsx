@@ -6,12 +6,12 @@ import { Auth } from "./components/Auth";
 import { MainPage } from "./components/MainPage";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
+import { Test } from "./components/Test";
 
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       retry: false,
-      refetchOnWindowFocus: false,
     },
   },
 });
@@ -26,7 +26,10 @@ const App: VFC = () => {
               <Auth />
             </Route>
             <Route exact path="/vehicle">
-              {localStorage.token ? <MainPage /> : <Redirect to="/" />}
+              <MainPage />
+            </Route>
+            <Route path="/test">
+              <Test />
             </Route>
           </Switch>
         </BrowserRouter>

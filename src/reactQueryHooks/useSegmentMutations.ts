@@ -8,12 +8,12 @@ export const useMutateSegments = () => {
   const createSegmentMutation = useMutation(
     (segment: Segment) =>
       axios.post<Segment>(
-        `${process.env.REACT_APP_REST_URL}api/segments`,
+        `${process.env.REACT_APP_REST_URL}api/segments/`,
         segment,
         {
           headers: {
             "Content-Type": "application/json",
-            Authorization: `${localStorage.token}`,
+            Authorization: `token ${localStorage.token}`,
           },
         }
       ),
@@ -33,7 +33,7 @@ export const useMutateSegments = () => {
   const updateSegmentMutation = useMutation(
     (segment: Segment) =>
       axios.put<Segment>(
-        `${process.env.REACT_APP_REST_URL}api/segments/${segment.id}`,
+        `${process.env.REACT_APP_REST_URL}api/segments/${segment.id}/`,
         segment,
         {
           headers: {
@@ -42,6 +42,7 @@ export const useMutateSegments = () => {
           },
         }
       ),
+
     {
       onSuccess: (res, variables) => {
         const previousSegments =
@@ -75,6 +76,7 @@ export const useMutateSegments = () => {
             previousSegments.filter((seg) => seg.id !== variables)
           );
         }
+        console.log("Deleted in segment");
       },
     }
   );

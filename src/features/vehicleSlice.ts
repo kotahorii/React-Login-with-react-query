@@ -2,8 +2,6 @@ import { createSlice } from "@reduxjs/toolkit";
 
 import { RootState } from "../app/store";
 
-const apiUrl = "http://localhost:8000/";
-
 const initialState = {
   editedSegment: {
     id: 0,
@@ -37,10 +35,14 @@ export const vehicleSlice = createSlice({
     editVehicle(state, action) {
       state.editedVehicle = action.payload;
     },
+    resetVehicle(state) {
+      state.editedVehicle = initialState.editedVehicle;
+    },
   },
 });
 
-export const { editSegment, editBrand, editVehicle } = vehicleSlice.actions;
+export const { editSegment, editBrand, editVehicle, resetVehicle } =
+  vehicleSlice.actions;
 
 export const selectSegment = (state: RootState) => state.vehicle.editedSegment;
 export const selectBrand = (state: RootState) => state.vehicle.editedBrand;
