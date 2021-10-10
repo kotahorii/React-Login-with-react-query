@@ -1,7 +1,7 @@
 import { VFC } from "react";
 import styles from "./Auth.module.css";
 import FlipCameraAndroidIcon from "@material-ui/icons/FlipCameraAndroid";
-import { useMutateAuth } from "../hooks/useAuthMutations";
+import { useMutateAuth } from "../reactQueryHooks/useAuthMutations";
 import { useState } from "react";
 import { FormEvent } from "react";
 
