@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./App.module.css";
 import { VFC } from "react";
-import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { Auth } from "./components/Auth";
 import { MainPage } from "./components/MainPage";
 import { QueryClient, QueryClientProvider } from "react-query";

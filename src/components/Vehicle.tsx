@@ -16,7 +16,7 @@ export const Vehicle: VFC = memo(() => {
   const editedVehicle = useAppSelector(selectVehicles);
   const { data: dataBrands, status: statusBrands } = useQueryBrands();
   const { data: dataSegments, status: statusSegments } = useQuerySegments();
-  const { data, status } = useQueryVehicles();
+  const { data } = useQueryVehicles();
   const {
     createVehiclesMutation,
     updateVehicleMutation,

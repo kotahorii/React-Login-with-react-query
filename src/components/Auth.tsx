@@ -1,9 +1,9 @@
 import { VFC } from "react";
 import styles from "./Auth.module.css";
-import FlipCameraAndroidIcon from "@material-ui/icons/FlipCameraAndroid";
 import { useMutateAuth } from "../reactQueryHooks/useAuthMutations";
 import { useState } from "react";
 import { FormEvent } from "react";
+import FlipCameraAndroidIcon from "@material-ui/icons/FlipCameraAndroid";
 
 export const Auth: VFC = () => {
   const {
@@ -50,6 +50,7 @@ export const Auth: VFC = () => {
             className={styles.auth__toggle}
             onClick={() => setIsLogin(!isLogin)}
           />
+          toggle
         </div>
       </form>
     </div>
